@@ -1,9 +1,8 @@
 import { useState } from "react"
 
-export const Input = ({ type, id }) => {
+export const Input = ({ type, name }) => {
     
-
     return (
-      <input type={type} id={id} onChange={ handleOnChange } />
+      <input type={type} name={name} />
     )
 }

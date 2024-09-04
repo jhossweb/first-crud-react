@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import './App.css'
+import { registerApi } from './services/api'
 
 
 
@@ -7,20 +8,12 @@ function App() {
 
   const [value, setValue] = useState('')
   
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
     
-    console.log(JSON.stringify({value}))
-    fetch("http://localhost:3000/register", {
-      method: "POST",
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({value})
-    })
-    .then(res => res.json())
-    .then(data => console.log(data))
     
+   
+    console.log(await registerApi(value ))
   }
 
   const handleOnChange = (e) => {
